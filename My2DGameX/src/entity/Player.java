@@ -35,8 +35,8 @@ public class Player extends Entity {
 		getPlayerImage();
 	}
 	public void setdefaultval() {
-		worldx = gp.tilesize*10; // toa do bat dau
-		worldy = gp.tilesize*12;// the starting position
+		worldx = gp.tilesize*23; // not screen posi, its the world map
+		worldy = gp.tilesize*21;// the starting position
 		speed = 4;
 		direction= "down";
 	}
@@ -45,7 +45,7 @@ public class Player extends Entity {
 			up1 = ImageIO.read(getClass().getResourceAsStream("/player/penup1.png"));
 			up2 = ImageIO.read(getClass().getResourceAsStream("/player/penup2.png"));
 			down1 = ImageIO.read(getClass().getResourceAsStream("/player/pendown1.png"));
-			down2 = ImageIO.read(getClass().getResourceAsStream("/player/pendown2.png"));
+			down2 = ImageIO.read(getClass().getResourceAsStream("/player/pendown1.png"));
 			right1 = ImageIO.read(getClass().getResourceAsStream("/player/penright1.png"));
 			right2 = ImageIO.read(getClass().getResourceAsStream("/player/penright2.png"));
 			left1 = ImageIO.read(getClass().getResourceAsStream("/player/penleft1.png"));

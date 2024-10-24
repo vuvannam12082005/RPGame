@@ -8,7 +8,6 @@ public class Collisioncheck {
 		this.gp = gp;
 	}
 	// method để check colli của entity
-	
 	public void checkTile(Entity entity) {
 		int entityleftworldx = entity.worldx + entity.solidarea.x;
 		int entityrightwordx = entity.worldx + entity.solidarea.x + entity.solidarea.width;
@@ -31,7 +30,7 @@ public class Collisioncheck {
 			}
 			break;
 		case "down":
-			entitybotrow = (entitybotworldy+entity.speed)/gp.tilesize;
+			entitybotrow = (entitytopworldy+entity.speed)/gp.tilesize;
 			tilenum1 = gp.tileM.maptilenum[entityleftcol][entitybotrow];
 			tilenum2 = gp.tileM.maptilenum[entityrightcol][entitybotrow];
 			if (gp.tileM.tile[tilenum1].collision== true || gp.tileM.tile[tilenum2].collision== true) {

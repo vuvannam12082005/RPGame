@@ -1,14 +1,14 @@
 package main;
 
 import java.awt.Color;
-import main.AssetSetter;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import object.SuperObject;
+
 import javax.swing.JPanel;
 
 import entity.Player;
+import object.Superobject;
 import tile.Tilemanager;
 
 public class Gamepanel extends JPanel implements Runnable {
@@ -35,14 +35,10 @@ public class Gamepanel extends JPanel implements Runnable {
 	
 	Thread gameThread; //keep runing util u stop
 	public Collisioncheck ccheck = new Collisioncheck(this);
-
+    public Assetsetter ass = new Assetsetter(this);
 	public Player player = new Player(this, keyH);
-	public AssetSetter aSetter = new AssetSetter(this);
-	public SuperObject obj[] =  new SuperObject[10];
-	public void setupGame () {
-		aSetter.setObject();
-	}
-	
+	// set default char posi
+	public Superobject obj[]= new Superobject[10];
 	// CONSTRUCTOR
 	public Gamepanel() {
 		this.setPreferredSize(new Dimension(screenwidth,screenheight));
@@ -92,7 +88,6 @@ public class Gamepanel extends JPanel implements Runnable {
 	}
 	public void update() {
 		player.update();
-
 	}
 	
 	// vẽ đồ họa tùy chỉnh lên JPanel bằng cách ghi đè phương thức
@@ -100,15 +95,24 @@ public class Gamepanel extends JPanel implements Runnable {
 		super.paintComponent(g);
 		// khởi tạo g2, với Graphics2D là lớp con của g
 		Graphics2D g2 = (Graphics2D)g;
+		
 		tileM.draw(g2); //layer of tile first
-		player.draw(g2);
-		g2.dispose();
-		for (int i = 0 ; i < obj.length ; i++) {
-			if(obj[i] != null ) {
-				obj[i].draw(g2,this);
+		
+		for (int i = 0; i<obj.length; i++) {
+			if (obj[i]!= null) {
+				obj[i].draw(g2,  this);
 			}
 		}
+		player.draw(g2);
 		
+		
+		g2.dispose();
+		
+		
+		
+	}
+	public void setup() {
+		ass.setobj();
 		
 	}
 

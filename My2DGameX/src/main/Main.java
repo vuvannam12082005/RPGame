@@ -8,16 +8,15 @@ public class Main {
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // close on exit
         window.setResizable(false); // fixed size
-        window.setTitle("HIEP SI ONLINE"); // game title
+        window.setTitle("OUT OF THE WHITE NIGHTS"); // game title
         window.setLocationRelativeTo(null);
    
         
         Gamepanel gamepanel = new Gamepanel();
         window.add(gamepanel);
         window.pack();
-        window.setLocationRelativeTo(null); // dat giua man hinh
+        gamepanel.setup();
         gamepanel.startgamethread();
         window.setVisible(true);
-        gamepanel.setupGame();
     }
 }
